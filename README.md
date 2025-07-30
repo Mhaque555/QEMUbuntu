@@ -17,3 +17,8 @@ docker compose up -d --build
 # লগ দেখে নিন
 docker compose logs -f
 ```
+```
+sudo apt-get install novnc -y
+```
+```
+websockify 6080 --web /usr/share/novnc/ localhost:5900
