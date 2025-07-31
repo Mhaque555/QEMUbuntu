@@ -9,7 +9,7 @@ services:
       ISO_URL: "https://releases.ubuntu.com/22.04.4/ubuntu-22.04.4-desktop-amd64.iso"
       ISO_PATH: "/storage/ubuntu.iso"
       ISO_SHA256: ""
-      BOOT_MODE: "disk"
+      BOOT_MODE: "install"
       VNC_ADDR: "0.0.0.0"
       VNC_PORT: "5900"
       NOVNC_PORT: "6080"
