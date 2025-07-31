@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-RAM_MB="${RAM_MB:-8192}"
+RAM_MB="${RAM_MB:-12288}"
 CPU_CORES="${CPU_CORES:-4}"
 DISK_PATH="${DISK_PATH:-/storage/ubuntu.qcow2}"
-DISK_SIZE="${DISK_SIZE:-512G}"
+DISK_SIZE="${DISK_SIZE:-1024G}"
 ISO_URL="${ISO_URL:-https://releases.ubuntu.com/22.04.4/ubuntu-22.04.4-desktop-amd64.iso}"
 ISO_PATH="${ISO_PATH:-/storage/ubuntu.iso}"
 ISO_SHA256="${ISO_SHA256:-}"
@@ -69,6 +69,9 @@ QEMU_CMD=(
   -vga virtio
   -hda "$DISK_PATH"
   -vnc "$VNC_ADDR:$DISPLAY_NUM"
+  -netdev user,id=usernet,hostfwd=tcp::3389-:3389
+  -device e1000,netdev=usernet
+
 )
 
 if [ -e /dev/kvm ]; then
