@@ -3,13 +3,13 @@ services:
     build: ./qemu
     container_name: qemu-ubuntu-novnc
     environment:
-      RAM_MB: "8192"
+      RAM_MB: "12288"
       CPU_CORES: "4"
-      DISK_SIZE: "512G"
+      DISK_SIZE: "1024G"
       ISO_URL: "https://releases.ubuntu.com/22.04.4/ubuntu-22.04.4-desktop-amd64.iso"
       ISO_PATH: "/storage/ubuntu.iso"
       ISO_SHA256: ""
-      BOOT_MODE: "install"
+      BOOT_MODE: "disk"
       VNC_ADDR: "0.0.0.0"
       VNC_PORT: "5900"
       NOVNC_PORT: "6080"
@@ -21,6 +21,7 @@ services:
     ports:
       - "5900:5900"
       - "6080:6080"
+      - "3389:3389"
     devices:
       - "/dev/kvm:/dev/kvm"
     restart: unless-stopped
