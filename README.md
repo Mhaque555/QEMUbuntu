@@ -11,14 +11,13 @@ cd QEMUbuntu/
 export COMPOSE_DOCKER_CLI_BUILD=0
 export DOCKER_BUILDKIT=0
 
-# এখন বিল্ড + রান
+# Now build + run
 docker compose up -d --build
 
-# লগ দেখে নিন
+# Check the logs
 docker compose logs -f
 ```
+# Open New terminal and run to see love download...
 ```
-sudo apt-get install novnc -y
+watch -n 2 ls -lh /tmp/ubuntu.iso
 ```
-```
-websockify 6080 --web /usr/share/novnc/ localhost:5900
